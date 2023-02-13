@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Counter.Views.Containers"
+             x:Class="Counter.MainPage"
+             x:Name="this">
+
+    <ScrollView BindingContext="{x:Reference this}">
+        <VerticalStackLayout>
+            <ListView ItemsSource="{Binding CounterElements}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <controls:CounterElement
+                            Description="{Binding Description}"
+                            Count="{Binding Count}"
+                            />
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button Text="Add Counter" Clicked="Add_Clicked"/>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
